@@ -67,12 +67,15 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Create Profile", "Add Product", "Admin View"])
 
     with tab1:
-        create_user_profile()
+        signup()
 
     with tab2:
-        add_product_form()
+        login()
 
     with tab3:
+        add_product_form()
+
+    with tab4:
         admin_view()
 
 if __name__ == "__main__":
