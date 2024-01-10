@@ -1,26 +1,39 @@
-body {
-  background-color: #f0f2f6;
+/* Add your CSS styles here */
+
+.stApp {
+    background-image: url('background_image.png');
+    background-size: cover;
+    opacity: 0.9;
 }
 
-h1 {
-  color: #ff4b4b;
+body, .stTextInput, .stSelectbox, .stButton, .stDateInput {
+    color: #FFFFFF;
+    font-size: 16px;
 }
 
-.header {
-  color: green;
-  font-family: 'Helvetica', sans-serif;
+.stMarkdown, .stDataFrame, .stFileUploader {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+.stButton > button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-button:hover {
-  opacity: 0.8;
+.stTextInput > input, .stSelectbox > select, .stDateInput > input {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+    font-family: Arial, sans-serif;
 }
