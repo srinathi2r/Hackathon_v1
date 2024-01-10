@@ -29,7 +29,24 @@ def add_product_form():
         location = st.text_input("Location/Cost Centre")
         uploaded_file = st.file_uploader("Upload Image", type=["jpg", "png"])
         submitted = st.form_submit_button("Submit Product")
+        
         if submitted:
+            # Append data to a CSV file
+            product_data = {
+                'Brand': brand,
+                'Type/Subtype': type_subtype,
+                'Size': size,
+                'Cost': cost,
+                'Expiry Date': expiry_date.strftime("%Y-%m-%d"),
+                'Classification': classification,
+                'Location/Cost Centre': location
+                # Note: Handling image uploads requires additional steps
+            }
+            file_path = 'products.csv'
+            if not os.path.isfile(file_path):
+                pd.DataFrame([product_data]).to_csv(file_path, index=False)
+            else:
+                pd.DataFrame([product_data]).to_csv(file_path, mode='a', header=False, index=False)
             st.success("Product Added")
 
 # Function to display the admin view
