@@ -1,0 +1,26 @@
+body {
+  background-color: #f0f2f6;
+}
+
+h1 {
+  color: #ff4b4b;
+}
+
+.header {
+  color: green;
+  font-family: 'Helvetica', sans-serif;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
