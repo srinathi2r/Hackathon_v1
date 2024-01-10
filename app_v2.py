@@ -16,12 +16,22 @@ def local_css(file_name):
     with open(file_name, "r") as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Function to display the user profile creation form
-def create_user_profile():
-    st.header("Create User Profile")
-    phone_or_email = st.text_input("Phone number or Email", max_chars=50)
-    if st.button("Create Profile"):
-        st.success(f"Profile created for: {phone_or_email}")
+# Function to display the sign-up form
+def signup():
+    st.header("Sign Up")
+    username = st.text_input("Username", max_chars=50)
+    email = st.text_input("Email Address", max_chars=50)
+    password = st.text_input("Password", type="password")
+    if st.button("Sign Up"):
+        st.success(f"Account created for: {username}")
+
+# Function to display the login form
+def login():
+    st.header("Login")
+    username = st.text_input("Username", key="login_username")
+    password = st.text_input("Password", type="password", key="login_password")
+    if st.button("Login"):
+        st.success(f"Logged in as {username}")
 
 # Function to display the product entry form
 def add_product_form():
