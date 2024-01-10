@@ -64,7 +64,9 @@ def main():
 
     st.title("The Reuseables/CodeRx-Renew")
 
-    tab1, tab2, tab3 = st.tabs(["Create Profile", "Add Product", "Admin View"])
+    ttab1, tab2, tab3, tab4 = st.tabs(["Sign Up", "Login", "Add Product", "Admin View"])
+
+    with tab1:
 
     with tab1:
         signup()
