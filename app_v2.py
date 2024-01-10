@@ -10,7 +10,7 @@ import streamlit as st
 import pandas as pd
 import os
 
-file_name = 'Users/srinath/Documents/Hackathon/style.css'
+file_name = 'style.css'
 # Custom CSS to inject our own styles
 def local_css(file_name):
     with open(file_name, "r") as f:
