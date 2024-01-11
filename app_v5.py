@@ -8,7 +8,7 @@ A Streamlit app for managing products and admin functionalities. It includes use
 (signup and login), product management, and admin view functionalities. Admin users can access
 additional features.
 """
-
+pip install -r bcrypt
 import streamlit as st
 import pandas as pd
 import sqlite3
