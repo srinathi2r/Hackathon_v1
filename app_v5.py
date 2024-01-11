@@ -10,7 +10,7 @@ additional features.
 """
 
 import sqlite3
-import bcrypt
+import hashlib
 import streamlit as st
 import pandas as pd
 
@@ -45,13 +45,15 @@ def create_users_table(conn):
 
 def hash_password(password):
     """
-    Hashes a password using bcrypt.
+    Hashes a password using SHA-256.
     Args:
     password (str): The password to be hashed.
     Returns:
-    bytes: The hashed password.
+    str: The hashed password.
     """
-    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    # Hash the password using SHA-256 and return it as a hex string
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+    return hashed_password
 
 def add_user(conn, first_name, last_name, email, password):
     """
@@ -83,7 +85,12 @@ def verify_login(email, password, conn):
     if user_data is None:
         return False
     hashed_password = user_data[0]
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
+    
+    # Hash the provided password and compare it to the stored hashed password
+    entered_password_hash = hash_password(password)
+    
+    return entered_password_hash == hashed_password
+    
 
 def logout():
     """
