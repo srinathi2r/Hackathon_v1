@@ -12,7 +12,7 @@ additional features.
 import streamlit as st
 import pandas as pd
 import sqlite3
-import bcrypt
+ifrom passlib.hash import pbkdf2_sha256
 
 # ------------------------
 # Custom CSS Styling
@@ -44,13 +44,13 @@ def create_users_table(conn):
 
 def hash_password(password):
     """
-    Hashes a password using bcrypt.
+    Hashes a password using pbkdf2_sha256 from passlib.
     Args:
     password (str): The password to be hashed.
     Returns:
-    bytes: The hashed password.
+    str: The hashed password.
     """
-    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    return pbkdf2_sha256.hash(password)
 
 def add_user(conn, first_name, last_name, email, password):
     """
@@ -82,7 +82,7 @@ def verify_login(email, password, conn):
     if user_data is None:
         return False
     hashed_password = user_data[0]
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
+    return pbkdf2_sha256.verify(password, hashed_password)
 
 def logout():
     """
