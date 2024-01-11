@@ -32,7 +32,6 @@ rich==13.7.0
 rpds-py==0.16.2
 six==1.16.0
 smmap==5.0.1
-streamlit==1.29.0
 tenacity==8.2.3
 toml==0.10.2
 toolz==0.12.0
