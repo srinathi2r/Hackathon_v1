@@ -12,7 +12,7 @@ additional features.
 import streamlit as st
 import pandas as pd
 import sqlite3
-ifrom passlib.hash import pbkdf2_sha256
+from passlib.hash import pbkdf2_sha256
 
 # ------------------------
 # Custom CSS Styling
