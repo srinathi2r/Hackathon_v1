@@ -9,10 +9,11 @@ A Streamlit app for managing products and admin functionalities. It includes use
 additional features.
 """
 
-import streamlit as st
-import pandas as pd
 import sqlite3
 import bcrypt
+import streamlit as st
+import pandas as pd
+
 
 # ------------------------
 # Custom CSS Styling
