@@ -9,11 +9,10 @@ A Streamlit app for managing products and admin functionalities. It includes use
 additional features.
 """
 
-import sqlite3
-import hashlib
 import streamlit as st
 import pandas as pd
-
+import sqlite3
+import bcrypt
 
 # ------------------------
 # Custom CSS Styling
@@ -45,15 +44,13 @@ def create_users_table(conn):
 
 def hash_password(password):
     """
-    Hashes a password using SHA-256.
+    Hashes a password using bcrypt.
     Args:
     password (str): The password to be hashed.
     Returns:
-    str: The hashed password.
+    bytes: The hashed password.
     """
-    # Hash the password using SHA-256 and return it as a hex string
-    hashed_password = hashlib.sha256(password.encode()).hexdigest()
-    return hashed_password
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
 def add_user(conn, first_name, last_name, email, password):
     """
@@ -85,12 +82,7 @@ def verify_login(email, password, conn):
     if user_data is None:
         return False
     hashed_password = user_data[0]
-    
-    # Hash the provided password and compare it to the stored hashed password
-    entered_password_hash = hash_password(password)
-    
-    return entered_password_hash == hashed_password
-    
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
 
 def logout():
     """
