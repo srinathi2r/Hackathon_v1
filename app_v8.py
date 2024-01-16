@@ -422,10 +422,6 @@ def main():
         with tab1:
             add_product_form(conn)  # Display the add product form (modified)
             display_products(conn)  # Display the list of products
-
-if __name__ == "__main__":
-    main()
-
-
+            
 if __name__ == "__main__":
     main()
