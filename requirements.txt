@@ -2,3 +2,4 @@ streamlit
 sendgrid
 sendgrid.helpers.mail
 uuid
+bcrypt
