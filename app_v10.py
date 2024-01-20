@@ -454,15 +454,15 @@ def add_product(conn):
 
 
 def detect_device_type():
-    # Get the user agent string from the query parameters
     user_agent_string = st.experimental_get_query_params().get("user_agent", [None])[0]
 
+    # Debugging: Log the user agent string
+    st.write("User Agent String:", user_agent_string)
+
     if user_agent_string:
-        # Check if the user agent string contains keywords for mobile or tablet devices
         if any(keyword in user_agent_string.lower() for keyword in ["mobile", "tablet", "android", "iphone", "ipad"]):
             return "Phone or Tablet"
     
-    # Default to "Computer" if the user agent is not detected as mobile or tablet
     return "Computer"
 
 # ------------------------
