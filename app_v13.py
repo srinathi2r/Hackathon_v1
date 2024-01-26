@@ -657,7 +657,7 @@ def main():
         create_verification_table(conn)
         create_products_table(conn)  # Create the products table
 
-    st.title("The Reuseables/CodeRx-Renew")
+    st.title("ReLive")
 
     if 'logged_in' not in st.session_state or not st.session_state['logged_in']:
         login_form(conn)  # Display the login form
