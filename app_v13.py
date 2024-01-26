@@ -664,7 +664,7 @@ def main():
     else:
         user_name = st.session_state.get('user_name', 'User')
         col1, col2 = st.columns([3, 1])
-        col1.markdown(f"<h1 style='text-align: left; color: red;'>{user_name}</h1>", unsafe_allow_html=True)
+        col1.markdown(f"<h1 style='text-align: left; color: red;'>Welcome, {user_name}</h1>", unsafe_allow_html=True)
         col2.button("Logout", on_click=logout)
 
         if st.session_state.get('user_email') == 'srinath.svce@gmail.com':
